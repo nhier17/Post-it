@@ -2,10 +2,13 @@
 
 import { signIn } from "next-auth/react"
 
-export default function Login() {
+export default  function Login() {
     return (
         <li className="list-none">
-            <button onClick={() => signIn()} className="text-sm">Sign In</button>
+            <button  onClick={() => signIn()} className="text-sm bg-gray-700 text-white py-2 rounded-xl px-6 disabled:opacity-25">
+                Sign In</button>
+                
+                
         </li>
     )
 }
