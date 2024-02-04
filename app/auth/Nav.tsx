@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Login from "./Login"
 
 export default async function Nav() {
     return(
@@ -6,6 +7,9 @@ export default async function Nav() {
        <Link href={'/'}>
        <h1>Send it</h1>
        </Link> 
+       <ul>
+        
+       </ul>
     </nav>
     )
 }
