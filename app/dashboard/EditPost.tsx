@@ -3,9 +3,10 @@
 import Image from "next/image"
 import { useState } from "react" 
 import Toggle from "../components/Toggle"
-import { useMutation } from "@tanstack/react-query"
+import { useQueryClient, useMutation } from "@tanstack/react-query"
 import axios from "axios"
-import { error } from "console"
+import toast from "react-hot-toast"
+
 
 type EditProps = {
     id: string
@@ -21,6 +22,8 @@ type EditProps = {
 
 export default function EditPost({avatar, id, comments, title, name}: EditProps) {
     const [toggle, setToggle] = useState(false)
+    const queryClient = useQueryClient()
+    let deleteToastID: string
     // delete post 
     const {mutate} = useMutation({
        mutationFn: async(id: string) => await axios.delete('/api/posts/deletePost', {data: id}),
@@ -28,7 +31,8 @@ export default function EditPost({avatar, id, comments, title, name}: EditProps)
         console.log(error)
        },
        onSuccess: (data) => {
-        console.log(data)
+        toast.success("Post has been deleted", {id: deleteToastID})
+        queryClient.invalidateQueries(["auth-posts"])
        }
     })
 
