@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Login from "./Login"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../../pages/auth/[...nextauth]"
+import { authOptions } from "../../pages/api/auth/[...nextauth]"
 import Logged from "./Logged"
 
 export default async function Nav() {
@@ -15,8 +15,7 @@ export default async function Nav() {
        <ul className="flex items-center gap-6">
         {!session?.user && <Login/>}
         {session?.user && <Logged image={session.user.image || ""}/>}
-        
-       </ul>
+        </ul>
     </nav>
     )
 }
