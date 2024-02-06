@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next"
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
  if (req.method === "POST" ) {
 const session = await getServerSession(req,res, authOptions)
@@ -14,21 +14,23 @@ if(!session) return res.status(401).json({msg: "Please sign in to make a post"})
 
 const title: string = req.body.title
 const prismaUser = await prisma.user.findUnique({
-  where: {email: session?.user?.email}
+  where: {email: session.user?.email?}
 })
 
 
 if(title.length > 300) {
 return res.status(403).json({msg: "Please write a shorter post"})
 }
+
 if (!title.length) {
 return res.status(403).json({msg: "Please do not leave this empty"})
 }
+
 try {
 const result = await prisma.post.create({
   data: {
       title,
-      userId: prismaUser.id,
+      userId: prismaUser?.id
   },
 })
 res.status(200).json(result)
