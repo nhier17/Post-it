@@ -4,6 +4,9 @@ import { authOptions } from "../auth/[...nextauth]"
 import { NextApiRequest, NextApiResponse } from "next"
 
 
+type data {
+  name: String
+}
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -28,10 +31,10 @@ return res.status(403).json({msg: "Please do not leave this empty"})
 
 try {
 const result = await prisma.post.create({
-  data: {
-      title,
-      userId: prismaUser?.id
-  },
+data: {
+title,
+userId: prismaUser?.id
+}
 })
 res.status(200).json(result)
 } catch (error) {
