@@ -16,7 +16,7 @@ queryFn: fetchAuthPosts,
 queryKey:["auth-posts"]
     })
     if (isLoading) return <h1>Posts are loading...</h1>
-    console.log(data)
+    
     return(
         <div>
         {data?.posts?.map((post)=> 
@@ -26,7 +26,7 @@ queryKey:["auth-posts"]
          avatar={data.image}
          name={data.name}
          title={post.title}    
-         comments={post.comments}   
+         comments={post.Comment}   
          />   
         )}
         </div>

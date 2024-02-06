@@ -22,7 +22,7 @@ export default function Home() {
   if (isLoading) {
     return "Loading..."
   }
-  console.log(data)
+  
   return (
     
     <div>

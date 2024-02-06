@@ -3,6 +3,9 @@
 import Image from "next/image"
 import { useState } from "react" 
 import Toggle from "../components/Toggle"
+import { useMutation } from "@tanstack/react-query"
+import axios from "axios"
+import { error } from "console"
 
 type EditProps = {
     id: string
@@ -15,8 +18,24 @@ type EditProps = {
       userId: string
     }[]
 }
+
 export default function EditPost({avatar, id, comments, title, name}: EditProps) {
     const [toggle, setToggle] = useState(false)
+    // delete post 
+    const {mutate} = useMutation({
+       mutationFn: async(id: string) => await axios.delete('/api/posts/deletePost', {data: id}),
+       onError: (error) => {
+        console.log(error)
+       },
+       onSuccess: (data) => {
+        console.log(data)
+       }
+    })
+
+    const deletePost = () => {
+        mutate(id)
+    }
+    
     return (
         <>
         <div className="bg-white my-8 p-8 rounded-lg">
@@ -35,10 +54,10 @@ export default function EditPost({avatar, id, comments, title, name}: EditProps)
             </div>
             <div className="flex items-center gap-4">
                 <p className="text-sm font-bold text-gray-700">{comments?.length} Comments</p>
-                <button className="text-sm font-bold text-red-500">Delete</button>
+                <button onClick={(e) =>setToggle(true)} className="text-sm font-bold text-red-500">Delete</button>
             </div>
         </div>
-        {toggle && <Toggle />}
+        {toggle && <Toggle deletePost={deletePost} setToggle={setToggle}/>}
         </>
     )
 }
