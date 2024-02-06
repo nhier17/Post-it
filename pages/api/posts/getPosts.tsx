@@ -17,7 +17,7 @@ export default async function handler(
           createdAt: "desc",
         },
       })
-     res.status(200).json({data})
+     res.status(200).json(data)
     } catch (err) {
       res.status(403).json({ err: "Error has occured while making a post" })
     }

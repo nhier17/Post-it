@@ -29,9 +29,9 @@ const data = await prisma.user.findUnique({
         }
     }
 })
-res.status(200).json({data})
+res.status(200).json(data)
 } catch (error) {
-res.status(403).json({ error: "Error has occured whilst making a post"})
+res.status(403).json({ error: "Error has occured while making a post"})
 }
 
  }

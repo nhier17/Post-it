@@ -4,9 +4,7 @@ import { authOptions } from "../auth/[...nextauth]"
 import { NextApiRequest, NextApiResponse } from "next"
 
 
-type data {
-  name: String
-}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -17,7 +15,7 @@ if(!session) return res.status(401).json({msg: "Please sign in to make a post"})
 
 const title: string = req.body.title
 const prismaUser = await prisma.user.findUnique({
-  where: {email: session.user?.email?}
+  where: {email: session?.user?.email}
 })
 
 

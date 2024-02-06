@@ -24,7 +24,7 @@ export default function Home() {
   }
   console.log(data)
   return (
-    <main>
+    
     <div>
       <AddPost />
     {data?.map((post) => (
@@ -38,6 +38,6 @@ export default function Home() {
       />
     ))}
     </div>
-    </main>
+    
   )
 }
