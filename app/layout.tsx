@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./auth/Nav";
 import QueryWrapper from "./auth/QueryWrapper";
 
+
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "700"],
