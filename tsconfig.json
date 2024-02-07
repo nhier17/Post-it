@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/posts/[details].ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/posts/[details].js", "pages/api/posts/AddComment.js", "pages/api/posts/addPost.js", "pages/api/posts/deletePost.js", "pages/api/posts/getPosts.js", "pages/api/posts/authPosts.js"],
   "exclude": ["node_modules"]
 }
