@@ -35,7 +35,7 @@ export default function Post({avatar,name, postTitle,id,comments}: EditProps) {
                 </div> 
           <div className="flex gap-4 items-center cursor-pointer">
           <Link href={`/post/${id}`}>
-            <p className="text-sm font-bold text-gray-700 ">{comments?.length}Comments</p>
+            <p className="text-sm font-bold text-gray-700 ">{comments?.length} Comments</p>
           </Link>
           </div>
         </div>
