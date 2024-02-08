@@ -5,7 +5,7 @@ A full stack Next.js application where users can seamlessly create,share and eng
 Leveraging the power of Prisma for efficient database management, Tanstack for enhanced developer experience, React Query for lightning-fast data fetching and Next-auth for secure user authentication.
 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Setup
 
 ## Getting Started
 
