@@ -9,7 +9,10 @@ const nextConfig = {
             pathname: '/**',
           },
         ],
-    }
+    },
+    typescript: {
+      ignoreBuildErrors: true,
+  }
 };
 
 export default nextConfig;

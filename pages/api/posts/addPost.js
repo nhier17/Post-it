@@ -21,7 +21,7 @@ return res.status(403).json({msg: "Please write a shorter post"})
 }
 
 if (!title.length) {
-return res.status(403).json({msg: "Please do not leave this empty"})
+   res.status(403).json({msg: "Please do not leave this empty"})
 }
 
 try {

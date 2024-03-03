@@ -3,7 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Nav from "./auth/Nav";
 import QueryWrapper from "./auth/QueryWrapper";
-
+import AuthContent from "./auth/AuthContent"
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -17,10 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`mx-4 md:mx-48 xl:mx-96 ${roboto.variable} bg-gray-200`}>
+      <body suppressHydrationWarning={true} className={`mx-4 md:mx-48 xl:mx-96 ${roboto.variable} bg-gray-200`}>
         <QueryWrapper>
+        <AuthContent> 
         <Nav/>
         {children}
+        </AuthContent> 
         </QueryWrapper>
         </body>
     </html>

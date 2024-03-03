@@ -6,6 +6,7 @@ import Toggle from "../components/Toggle"
 import { useQueryClient, useMutation } from "@tanstack/react-query"
 import axios from "axios"
 import toast from "react-hot-toast"
+import { FaRegComment } from "react-icons/fa";
 
 
 type EditProps = {
@@ -32,7 +33,7 @@ export default function EditPost({avatar, id, comments, title, name}: EditProps)
        },
        onSuccess: (data) => {
         toast.success("Post has been deleted", {id: deleteToastID})
-        queryClient.invalidateQueries(["auth-posts"])
+        queryClient.invalidateQueries({queryKey: ["auth-posts"]})
        }
     })
 
@@ -57,7 +58,7 @@ export default function EditPost({avatar, id, comments, title, name}: EditProps)
                <p className="break-all">{title}</p> 
             </div>
             <div className="flex items-center gap-4">
-                <p className="text-sm font-bold text-gray-700">{comments?.length} Comments</p>
+                <p className="text-sm font-bold text-gray-700">{comments?.length} <FaRegComment/> </p>
                 <button onClick={(e) =>setToggle(true)} className="text-sm font-bold text-red-500">Delete</button>
             </div>
         </div>

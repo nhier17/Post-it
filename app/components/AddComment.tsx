@@ -23,17 +23,16 @@ export default function AddComment({ id }: PostProps) {
 
     const queryClient = useQueryClient()
 
-    const {mutate} = useMutation({
-        mutationFn: async (data: Comment) => {
-            return axios.post("/api/posts/addComment", { data })
-        },
-        onError: (error) => {
+    const { mutate } = useMutation({
+        mutationFn: async (data: Comment) =>  await axios.post('/api/posts/addComment', { data }) ,
+         onError: (error) => {
             setIsDisabled(false)
             if (error instanceof AxiosError) {
                 toast.error(error?.response?.data.message, { id: commentToastId })
               }
         }, 
         onSuccess: (data) => {
+            queryClient.invalidateQueries({queryKey: ["detail-post"]})
             setTitle("")
             setIsDisabled(false)
             toast.success("Added your comment", { id: commentToastId })
@@ -42,9 +41,8 @@ export default function AddComment({ id }: PostProps) {
      const submitPost = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsDisabled(true)
-        commentToastId = toast.loading("Adding your comment", {
-          id: commentToastId,
-        })
+        commentToastId = toast.loading("Adding your comment")
+        toast.dismiss(commentToastId)
         mutate({ title, postId: id })
       }
     return (

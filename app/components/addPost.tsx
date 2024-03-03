@@ -19,7 +19,7 @@ onError: (error) => {
       setIsDisabled(false)
 },
 onSuccess:(data) =>{
-    queryClient.invalidateQueries(["posts"])
+    queryClient.invalidateQueries({queryKey: ["posts"]})
     toast.success("Post has been made 🔥", { id: toastPostID })
     setTitle("")
     setIsDisabled(false)
@@ -30,6 +30,7 @@ const submitPost = async(e: React.FormEvent) => {
 e.preventDefault()    
 setIsDisabled(true)
 toastPostID = toast.loading("Creating your post", { id: toastPostID })
+toast.dismiss(toastPostID)
 mutate(title)
 }
 
