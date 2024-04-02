@@ -10,10 +10,11 @@ export default async function handler(req,res) {
 const session = await getServerSession(req,res, authOptions)
 if(!session) return res.status(401).json({msg: "Please sign in "})
 //delete a post
+const postId = req.body;
 try {
-const postId = req.body
+
 const result = await prisma.post.delete({
-    wherre: {
+    where: {
         id: postId,
     }
 })

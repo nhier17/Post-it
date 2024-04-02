@@ -14,6 +14,7 @@ const prismaUser = await prisma.user.findUnique({
 })
 if (req.method === "POST") {
     const {title, postId} = req.body.data
+    
     console.log(title,postId)
     if (!title.length) {
         return res.status(401).json({msg: "Please add comment"})
@@ -22,7 +23,6 @@ if (req.method === "POST") {
         const result = await prisma.comment.create({
             data: {
                 title,
-                message,
                 userId: prismaUser.id,
                 postId,
             },
@@ -30,6 +30,9 @@ if (req.method === "POST") {
         res.status(200).json(result)
     } catch (error) {
         console.log(error)
+        return res.status(500).json({ msg: "An error occurred while adding the comment" })
     }
+} else {
+    res.status(405).json({ msg: "Method not allowed" })
 }
 }
