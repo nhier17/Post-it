@@ -14,8 +14,7 @@ const prismaUser = await prisma.user.findUnique({
 })
 if (req.method === "POST") {
     const {title, postId} = req.body.data
-    
-    console.log(title,postId)
+
     if (!title.length) {
         return res.status(401).json({msg: "Please add comment"})
     }
