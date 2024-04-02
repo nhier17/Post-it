@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "path/to/post-it",
+        "use": "@vercel/node",
+        "config": {
+          "maxLambdaSize": "5mb"
+        },
+        "functions": {
+          "api/*": {
+            "memory": 512
+          }
+        },
+        "build": {
+          "commands": [
+            "npx prisma generate"
+          ]
+        }
+      }
+    ]
+  }
