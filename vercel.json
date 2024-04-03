@@ -1,11 +1,10 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "prisma/schema.prisma", "use": "prisma" },
-      { "src": "next.config.js", "use": "@vercel/next" }
-    ],
-    "routes": [
-      { "handle": "filesystem" },
-      { "src": "/.*", "dest": "index.js" }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "index.js" }
+  ]
+}
