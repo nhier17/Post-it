@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "prisma", "use": "prisma" }
+  ],
   "routes": [
     { "handle": "filesystem" },
     { "src": "/api/(.*)", "dest": "/app/api/$1" },
