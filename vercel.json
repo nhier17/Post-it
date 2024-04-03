@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "prisma", "use": "prisma" }
-  ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/app/api/$1" },
-    { "source": "/(.*)", "destination": "/app/pages/$1" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/(.*)", "dest": "/app/api/$1" },
+    { "src": "/(.*)", "dest": "/app/pages/$1" }
   ]
 }
