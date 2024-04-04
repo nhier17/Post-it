@@ -10,6 +10,7 @@ const fetchAuthPosts = async () => {
     return response.data
  
 }
+
 export default function MyPosts() {
     const {data, isLoading} =useQuery<AuthPosts>({
 queryFn: fetchAuthPosts,
