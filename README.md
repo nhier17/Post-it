@@ -62,7 +62,7 @@ To get started with POST-IT, follow these steps:
 
 ## Technology Stack
 
-- **Frontend**: Next.js, React, Tailwind CSS
+- **Frontend**: Next.js,Tailwind CSS
 - **Backend**: Prisma, Next.js API routes
 - **Database**: PostgreSQL, MongoDB (optional)
 - **Authentication**: Next-auth
