@@ -4,37 +4,78 @@
 A full stack Next.js application where users can seamlessly create,share and engage with posts and comments.
 Leveraging the power of Prisma for efficient database management, Tanstack for enhanced developer experience, React Query for lightning-fast data fetching and Next-auth for secure user authentication.
 
-
-## Setup
-
 ## Getting Started
 
-First, run the development server:
+To get started with POST-IT, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the GitHub repository:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    git clone https://github.com/your-username/post-it.git
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Navigate to the project directory:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    ```bash
+    cd post-it
+    ```
 
-## Learn More
+3. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Set up environment variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```
+    Create a .env file and add necessary environment variables (e.g., database connection string, authentication secrets).
+    ```
+
+5. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+6. Open your browser and visit http://localhost:3000 to access the app.
+
+## Features
+
+### 1. Create and Share Posts
+
+- Users can create posts with text, images, or videos.
+- Posts can be shared with other users or publicly.
+- Rich text editor for formatting posts.
+
+### 2. Engage with Posts and Comments
+
+- Users can like, comment, and share posts.
+- Real-time updates for new comments and likes.
+- Nested comments for better conversation threads.
+
+### 3. User Authentication and Authorization
+
+- Secure user authentication using Next-auth.
+- Role-based access control for managing permissions.
+- User profiles with customizable settings and preferences.
+
+## Technology Stack
+
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Prisma, Next.js API routes
+- **Database**: PostgreSQL, MongoDB (optional)
+- **Authentication**: Next-auth
+- **State Management**: React Query
+- **Deployment**: Vercel
+
+## Author: ABRAHAM NHIER
+## Contact Information
+    Email: abrahamnhier97@gmail.com
+    Phone: +254716903151
+
+## License: [MIT License](link-to-license-file).
+
 
 ## Deploy on Vercel
 
